@@ -143,17 +143,17 @@ function SectionHeader({
   description?: string;
 }) {
   return (
-    <div className="mb-8 max-w-3xl">
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">{eyebrow}</p>
-      <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">{title}</h2>
-      {description && <p className="mt-4 text-base leading-7 text-slate-600">{description}</p>}
+    <div className="mb-8 max-w-3xl animate-fade-up">
+      <p className="mb-3 text-sm font-semibold uppercase text-sky-300">{eyebrow}</p>
+      <h2 className="text-3xl font-bold text-white sm:text-4xl">{title}</h2>
+      {description && <p className="mt-4 text-base leading-7 text-zinc-400">{description}</p>}
     </div>
   );
 }
 
 function Pill({ children }: { children: string; key?: string }) {
   return (
-    <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-700">
+    <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-sm font-medium text-zinc-200">
       {children}
     </span>
   );
@@ -161,22 +161,22 @@ function Pill({ children }: { children: string; key?: string }) {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <div className="min-h-screen bg-[#080808] text-zinc-100">
+      <header className="animate-header sticky top-0 z-30 border-b border-white/10 bg-[#080808]/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-          <a href="#top" className="text-lg font-bold tracking-tight text-slate-950">
+          <a href="#top" className="text-lg font-bold text-white">
             Dipendu
           </a>
-          <nav className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+          <nav className="hidden items-center gap-6 text-sm font-medium text-zinc-400 md:flex">
             {navItems.map(([label, id]) => (
-              <a key={id} href={`#${id}`} className="transition hover:text-sky-700">
+              <a key={id} href={`#${id}`} className="transition hover:text-sky-300">
                 {label}
               </a>
             ))}
           </nav>
           <a
             href={`mailto:${email}`}
-            className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-700"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-sky-300"
           >
             <Mail className="h-4 w-4" />
             Contact
@@ -185,33 +185,33 @@ export default function App() {
       </header>
 
       <main id="top">
-        <section className="border-b border-slate-200 bg-white">
+        <section className="border-b border-white/10 bg-[#0c0c0d]">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-800">
-                <span className="h-2 w-2 rounded-full bg-sky-600" />
+              <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-200">
+                <span className="h-2 w-2 rounded-full bg-sky-300" />
                 Open to QA Opportunities
               </div>
-              <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-6xl">
+              <h1 className="animate-fade-up delay-1 mt-5 max-w-4xl text-4xl font-bold leading-tight text-white sm:text-6xl">
                 Software Tester ensuring quality at scale.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              <p className="animate-fade-up delay-2 mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
                 QA Specialist at UBUY with experience in manual testing, cross-platform validation,
                 defect management, and data accuracy testing for global e-commerce products.
               </p>
-              <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-600">
+              <div className="animate-fade-up delay-3 mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-400">
                 <span className="inline-flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-sky-700" />
+                  <MapPin className="h-4 w-4 text-sky-300" />
                   Jaipur, India
                 </span>
-                <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-900">
+                <span className="rounded-full bg-emerald-400/10 px-3 py-1 font-semibold text-emerald-200">
                   QA Engineer
                 </span>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="animate-fade-up delay-4 mt-8 flex flex-wrap gap-3">
                 <a
                   href={`mailto:${email}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-800"
+                  className="inline-flex items-center gap-2 rounded-full bg-sky-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-400"
                 >
                   <Mail className="h-4 w-4" />
                   Contact Me
@@ -220,7 +220,7 @@ export default function App() {
                   href={linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:border-sky-700 hover:text-sky-700"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition hover:border-sky-300 hover:text-sky-200"
                 >
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
@@ -228,22 +228,22 @@ export default function App() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-6 text-white shadow-xl">
+            <div className="profile-card rounded-lg border border-white/10 bg-[#151516] p-6 text-white shadow-2xl shadow-black/40">
               <div className="flex items-center gap-4">
-                <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-sky-500 text-3xl font-bold">
+                <div className="profile-avatar flex h-24 w-24 items-center justify-center rounded-lg bg-sky-500 text-3xl font-bold">
                   DM
                 </div>
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-200">QA @ UBUY</p>
+                  <p className="text-sm font-semibold uppercase text-sky-200">QA @ UBUY</p>
                   <h2 className="mt-2 text-2xl font-bold">Dipendu Mukherjee</h2>
-                  <p className="mt-1 text-sm text-slate-300">Software Tester & QA Specialist</p>
+                  <p className="mt-1 text-sm text-zinc-400">Software Tester & QA Specialist</p>
                 </div>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-3">
-                {stats.map(([value, label]) => (
-                  <div key={label} className="rounded-2xl bg-white/10 p-4">
+                {stats.map(([value, label], index) => (
+                  <div key={label} className={`metric-card rounded-lg bg-white/[0.06] p-4 delay-${index + 1}`}>
                     <p className="text-2xl font-bold">{value}</p>
-                    <p className="mt-1 text-sm text-slate-300">{label}</p>
+                    <p className="mt-1 text-sm text-zinc-400">{label}</p>
                   </div>
                 ))}
               </div>
@@ -258,16 +258,16 @@ export default function App() {
             description="I focus on finding issues early, documenting them clearly, and helping teams ship stable experiences across devices, browsers, and product flows."
           />
           <div className="grid gap-4 md:grid-cols-2">
-            {strengths.map((item) => (
-              <div key={item} className="flex gap-3 rounded-2xl border border-slate-200 bg-white p-5">
-                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-sky-700" />
-                <p className="text-slate-700">{item}</p>
+            {strengths.map((item, index) => (
+              <div key={item} className={`interactive-card flex gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-5 delay-${index + 1}`}>
+                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-300" />
+                <p className="text-zinc-300">{item}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="experience" className="border-y border-slate-200 bg-white">
+        <section id="experience" className="border-y border-white/10 bg-[#0c0c0d]">
           <div className="mx-auto max-w-6xl px-5 py-16">
             <SectionHeader
               eyebrow="Career"
@@ -275,22 +275,22 @@ export default function App() {
               description="A focused QA path across e-commerce testing, defect management, documentation, and data validation."
             />
             <div className="space-y-5">
-              {experiences.map((job) => (
-                <article key={`${job.role}-${job.period}`} className="rounded-2xl border border-slate-200 p-6">
+              {experiences.map((job, index) => (
+                <article key={`${job.role}-${job.period}`} className={`interactive-card rounded-lg border border-white/10 bg-[#151516] p-6 delay-${index + 1}`}>
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
-                      <p className="text-sm font-semibold text-sky-700">{job.period}</p>
-                      <h3 className="mt-1 text-2xl font-bold text-slate-950">{job.role}</h3>
-                      <p className="mt-1 text-slate-600">
+                      <p className="text-sm font-semibold text-sky-300">{job.period}</p>
+                      <h3 className="mt-1 text-2xl font-bold text-white">{job.role}</h3>
+                      <p className="mt-1 text-zinc-400">
                         {job.company} | {job.location}
                       </p>
                     </div>
-                    <BriefcaseBusiness className="hidden h-6 w-6 text-slate-300 sm:block" />
+                    <BriefcaseBusiness className="hidden h-6 w-6 text-amber-300 sm:block" />
                   </div>
-                  <ul className="mt-5 grid gap-3 text-slate-700">
+                  <ul className="mt-5 grid gap-3 text-zinc-300">
                     {job.points.map((point) => (
                       <li key={point} className="flex gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-700" />
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -308,9 +308,9 @@ export default function App() {
             description="A practical stack for manual QA, cross-platform testing, and clear defect communication."
           />
           <div className="grid gap-5 md:grid-cols-2">
-            {skillGroups.map((group) => (
-              <div key={group.title} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <h3 className="text-lg font-bold text-slate-950">{group.title}</h3>
+            {skillGroups.map((group, index) => (
+              <div key={group.title} className={`interactive-card rounded-lg border border-white/10 bg-white/[0.04] p-6 delay-${index + 1}`}>
+                <h3 className="text-lg font-bold text-white">{group.title}</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((skill) => (
                     <Pill key={skill}>{skill}</Pill>
@@ -321,7 +321,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="projects" className="border-y border-slate-200 bg-white">
+        <section id="projects" className="border-y border-white/10 bg-[#0c0c0d]">
           <div className="mx-auto max-w-6xl px-5 py-16">
             <SectionHeader
               eyebrow="Portfolio"
@@ -329,11 +329,11 @@ export default function App() {
               description="Academic projects that support analytical thinking, ML literacy, and data-focused QA work."
             />
             <div className="grid gap-5 lg:grid-cols-3">
-              {projects.map((project) => (
-                <article key={project.title} className="rounded-2xl border border-slate-200 p-6">
-                  <p className="text-sm font-semibold text-sky-700">{project.date}</p>
-                  <h3 className="mt-3 text-xl font-bold leading-snug text-slate-950">{project.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{project.description}</p>
+              {projects.map((project, index) => (
+                <article key={project.title} className={`interactive-card rounded-lg border border-white/10 bg-[#151516] p-6 delay-${index + 1}`}>
+                  <p className="text-sm font-semibold text-sky-300">{project.date}</p>
+                  <h3 className="mt-3 text-xl font-bold leading-snug text-white">{project.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-zinc-400">{project.description}</p>
                   <div className="mt-5 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <Pill key={tag}>{tag}</Pill>
@@ -348,32 +348,32 @@ export default function App() {
         <section id="education" className="mx-auto max-w-6xl px-5 py-16">
           <SectionHeader eyebrow="Background" title="Education & certification" />
           <div className="grid gap-5 md:grid-cols-3">
-            {education.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <GraduationCap className="h-6 w-6 text-sky-700" />
-                <h3 className="mt-4 text-lg font-bold text-slate-950">{item.title}</h3>
-                <p className="mt-2 text-sm font-medium text-slate-700">{item.place}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-500">{item.meta}</p>
+            {education.map((item, index) => (
+              <article key={item.title} className={`interactive-card rounded-lg border border-white/10 bg-white/[0.04] p-6 delay-${index + 1}`}>
+                <GraduationCap className="h-6 w-6 text-amber-300" />
+                <h3 className="mt-4 text-lg font-bold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm font-medium text-zinc-300">{item.place}</p>
+                <p className="mt-2 text-sm leading-6 text-zinc-500">{item.meta}</p>
               </article>
             ))}
           </div>
-          <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-6">
-            <h3 className="text-lg font-bold text-slate-950">Certification</h3>
-            <p className="mt-2 text-slate-600">Online Course in Software Testing - Coursera</p>
+          <div className="interactive-card delay-4 mt-5 rounded-lg border border-white/10 bg-white/[0.04] p-6">
+            <h3 className="text-lg font-bold text-white">Certification</h3>
+            <p className="mt-2 text-zinc-400">Online Course in Software Testing - Coursera</p>
           </div>
         </section>
 
-        <section id="contact" className="bg-slate-950 px-5 py-16 text-white">
+        <section id="contact" className="border-t border-white/10 bg-[#0c0c0d] px-5 py-16 text-white">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">Contact</p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Let's work together.</h2>
-              <p className="mt-4 max-w-2xl text-slate-300">
+            <div className="animate-fade-up">
+              <p className="mb-3 text-sm font-semibold uppercase text-sky-300">Contact</p>
+              <h2 className="text-3xl font-bold sm:text-4xl">Let's work together.</h2>
+              <p className="mt-4 max-w-2xl text-zinc-400">
                 Open to QA roles, testing opportunities, and collaborations. Reach out for manual testing,
                 defect validation, or e-commerce QA support.
               </p>
             </div>
-            <div className="rounded-2xl bg-white p-6 text-slate-950">
+            <div className="interactive-card rounded-lg border border-white/10 bg-white p-6 text-zinc-950">
               <div className="space-y-4">
                 <a href={`mailto:${email}`} className="flex items-center gap-3 font-semibold hover:text-sky-700">
                   <Mail className="h-5 w-5" />
@@ -395,7 +395,7 @@ export default function App() {
               </div>
               <a
                 href={`mailto:${email}`}
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sky-700 px-5 py-3 text-sm font-semibold text-white hover:bg-sky-800"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-sky-600 px-5 py-3 text-sm font-semibold text-white hover:bg-sky-700"
               >
                 <Download className="h-4 w-4" />
                 Request CV / Resume
@@ -405,7 +405,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="bg-slate-950 px-5 pb-8 text-sm text-slate-400">
+      <footer className="bg-[#0c0c0d] px-5 pb-8 text-sm text-zinc-500">
         <div className="mx-auto max-w-6xl border-t border-white/10 pt-6">
           &copy; 2026 Dipendu Mukherjee. All rights reserved.
         </div>
