@@ -8,8 +8,8 @@
 }
 
 html, body {
-  background-color: #000000;
-  color: #f5f5f7;
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
 body {
@@ -99,4 +99,3 @@ body {
     animation: none !important;
   }
 }
-
