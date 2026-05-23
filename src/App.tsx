@@ -26,6 +26,11 @@ function ScrollReveal({ children, className = "", style = {} }: { children: Reac
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (!("IntersectionObserver" in window)) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -53,11 +58,20 @@ function ScrollReveal({ children, className = "", style = {} }: { children: Reac
   );
 }
 
+function getIsMobileLike() {
+  if (typeof window === "undefined" || !("matchMedia" in window)) {
+    return true;
+  }
+
+  return window.matchMedia("(max-width: 767px), (pointer: coarse)").matches;
+}
+
 export default function App() {
   const mailTo = "mailto:dipendu.mukherjee.27@gmail.com";
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
+  const [isMobileLike, setIsMobileLike] = useState(getIsMobileLike);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +83,13 @@ export default function App() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const updateDeviceMode = () => setIsMobileLike(getIsMobileLike());
+    updateDeviceMode();
+    window.addEventListener("resize", updateDeviceMode, { passive: true });
+    return () => window.removeEventListener("resize", updateDeviceMode);
   }, []);
 
   const appleEase = [0.25, 0.1, 0.25, 1];
@@ -97,10 +118,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#000000] text-[#f5f5f7] selection:bg-[#0071e3]/30 selection:text-white font-sans antialiased text-left pb-16 relative overflow-hidden">
-      <AmbientBackground />
-      <FloatingParticles />
-      <AqaSystemMatrix />
-      <CursorGlitter />
+      {!isMobileLike && (
+        <>
+          <AmbientBackground />
+          <FloatingParticles />
+          <AqaSystemMatrix />
+          <CursorGlitter />
+        </>
+      )}
 
       {/* Sticky Apple-Style Product Navigation Bar (48px tall, frosted glass) */}
       <div 
